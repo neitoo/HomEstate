@@ -32,15 +32,13 @@
             tools:ignore="ContentDescription,ImageContrastCheck" />
 
 
-
-
         <EditText
             android:id="@+id/cost"
             android:layout_width="0dp"
             android:layout_height="55dp"
             android:layout_below="@+id/select_home_image"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="104dp"
+            android:layout_marginTop="32dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/input_design"
             android:ems="10"
@@ -54,6 +52,7 @@
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/select_home_image" />
 
@@ -185,20 +184,6 @@
             app:layout_constraintTop_toBottomOf="@+id/number"
             app:layout_constraintVertical_bias="1.0" />
 
-        <Spinner
-
-            android:id="@+id/spinner"
-            android:layout_width="211dp"
-            android:layout_height="55dp"
-            android:background="@drawable/input_design"
-            android:paddingLeft="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/cost"
-            app:layout_constraintEnd_toEndOf="@+id/cost"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/cost"
-            app:layout_constraintTop_toBottomOf="@+id/select_home_image"
-            app:layout_constraintVertical_bias="0.775" />
-
         <TextView
             android:id="@+id/squareValue"
             android:layout_width="169dp"
@@ -229,23 +214,6 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/location"
             app:layout_constraintTop_toBottomOf="@+id/location" />
-
-        <TextView
-            android:id="@+id/typeHome"
-            android:layout_width="169dp"
-            android:layout_height="24dp"
-            android:layout_marginBottom="4dp"
-            android:fontFamily="@font/comfortaa"
-            android:text="Тип недвижимости"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#ffffff"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/spinner"
-            app:layout_constraintEnd_toEndOf="@+id/spinner"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/spinner" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
