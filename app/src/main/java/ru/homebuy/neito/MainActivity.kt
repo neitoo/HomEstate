@@ -21,60 +21,6 @@ import ru.homebuy.neito.Model.Houses
 
 class MainActivity : AppCompatActivity() {
 
-    /*var HouseReference: DatabaseReference? = null
-    private var recyclerView: RecyclerView? = null
-    var layoutManager: RecyclerView.LayoutManager? = null
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        addAnAd.setOnClickListener(){
-            val intentAd = Intent(this, PlusAd::class.java)
-            startActivity(intentAd)
-        }
-
-        settingButton.setOnClickListener(){
-            val intentSet = Intent(this, setting_homes::class.java)
-            startActivity(intentSet)
-        }
-
-
-        recyclerView = findViewById(R.id.recycler_menu)
-        recyclerView?.setHasFixedSize(true)
-        layoutManager = LinearLayoutManager(this)
-        recyclerView?.layoutManager = layoutManager
-    }
-    override fun onStart() {
-        super.onStart()
-        val options = HouseReference?.let {
-            FirebaseRecyclerOptions.Builder<Houses>()
-                .setQuery(it, Houses::class.java).build()
-        }
-        val adapter: FirebaseRecyclerAdapter<Houses, HouseViewHolder> = object : FirebaseRecyclerAdapter<Houses, HouseViewHolder>(options!!) {
-                override fun onBindViewHolder(
-                    @NotNull holder: HouseViewHolder,
-                    i: Int,
-                    @NotNull model: Houses
-                ) {
-                    holder.txtCost.text = model.getCostV()
-                    holder.txtLocation.text = model.getLocationV()
-                    holder.txtInfo.text = model.getInfoV()
-                    Picasso.get().load(model.getImage()).into(holder.imageView)
-                }
-
-                @NotNull
-                override fun onCreateViewHolder(
-                    @NotNull parent: ViewGroup,
-                    viewType: Int
-                ): HouseViewHolder {
-                    val view = LayoutInflater.from(parent.context)
-                        .inflate(R.layout.house_image_layout, parent, false)
-                    return HouseViewHolder(view)
-                }
-            }
-        recyclerView!!.adapter = adapter
-        adapter.startListening()
-    }*/
 
     var HouseReference: DatabaseReference? = null
     private var recyclerView: RecyclerView? = null
@@ -126,6 +72,11 @@ class MainActivity : AppCompatActivity() {
             }
         recyclerView!!.adapter = adapter
         adapter.startListening()
+    }
+
+    fun SelectInfoAd(view: View){
+        val IntentInfoAd = Intent(this, InfoMenuAd::class.java)
+        startActivity(IntentInfoAd)
     }
 
 }

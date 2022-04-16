@@ -12,12 +12,12 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#3d3d4d"
+        android:onClick="SelectInfoAd"
         android:paddingLeft="20dp"
-        android:paddingRight="20dp"
         android:paddingTop="15dp"
-        android:layout_marginTop="8dp"
-        android:paddingBottom="10dp"
-        android:background="#3d3d4d">
+        android:paddingRight="20dp"
+        android:paddingBottom="10dp">
 
         <TextView
             android:id="@+id/costHouseAd"
