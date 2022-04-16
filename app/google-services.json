@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "8817598833",
+    "firebase_url": "https://homebuyproject-43722-default-rtdb.firebaseio.com",
+    "project_id": "homebuyproject-43722",
+    "storage_bucket": "homebuyproject-43722.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:8817598833:android:96b2669455165d2832d6d0",
+        "android_client_info": {
+          "package_name": "ru.homebuy.neito"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "8817598833-fut944qjetvrv005ooiu1dvh6n0hq4p5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFwGEFWVX-ityDfEqVXHl1xOseYvNc9nM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "8817598833-fut944qjetvrv005ooiu1dvh6n0hq4p5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
