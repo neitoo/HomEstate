@@ -33,12 +33,14 @@ class PlusAd : AppCompatActivity() {
     private var RandomKey: String? = null
     private var downloadImageUrl: String? = null
     private var houseImage: ImageView? = null
+
     private var costView: EditText? = null
     private var locationView: EditText? = null
     private var roomsView: EditText? = null
     private var squareView: EditText? = null
     private var infoView: EditText? = null
     private var phoneNumber: EditText? = null
+
     private var selectButton: Button? = null
     private var closeButton: Button? = null
     private var ImageUri: Uri? = null
@@ -139,13 +141,13 @@ class PlusAd : AppCompatActivity() {
         productMap["pid"] = RandomKey
         productMap["date"] = saveCurrentDate
         productMap["time"] = saveCurrentTime
-        productMap["infoV"] = infoView?.getText().toString()
-        productMap["numberV"] = phoneNumber?.getText().toString()
+        productMap["infoV"] = infoView?.text.toString()
+        productMap["numberV"] = phoneNumber?.text.toString()
         productMap["image"] = downloadImageUrl
-        productMap["costV"] = costView?.getText().toString()
-        productMap["locationV"] = locationView?.getText().toString()
-        productMap["roomsV"] = roomsView?.getText().toString()
-        productMap["squareV"] = squareView?.getText().toString()
+        productMap["costV"] = costView?.text.toString()
+        productMap["locationV"] = locationView?.text.toString()
+        productMap["roomsV"] = roomsView?.text.toString()
+        productMap["squareV"] = squareView?.text.toString()
         HouseReference!!.child(RandomKey!!).updateChildren(productMap)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {

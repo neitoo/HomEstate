@@ -1,5 +1,6 @@
 package ru.homebuy.neito
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -17,7 +18,9 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.annotations.NotNull
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_splash_screen.*
 import ru.homebuy.neito.Model.Houses
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,10 +29,20 @@ class MainActivity : AppCompatActivity() {
     private var recyclerView: RecyclerView? = null
     var layoutManager: RecyclerView.LayoutManager? = null
 
+    var cost: String ?= null
+    var location: String ?= null
+    var room: String ?= null
+    var square: String ?= null
+    var info: String ?= null
+    var number: String ?= null
+    var image: String  ?=null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         HouseReference = FirebaseDatabase.getInstance().reference.child("Houses")
+
         val PlusAdActivity = findViewById<View>(R.id.addAnAd) as Button
         PlusAdActivity.setOnClickListener { view ->
             val intent = Intent(view.context, PlusAd::class.java)
@@ -49,17 +62,33 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+
+
         val options = FirebaseRecyclerOptions.Builder<Houses>()
             .setQuery(HouseReference!!, Houses::class.java).build()
 
         val adapter: FirebaseRecyclerAdapter<Houses, HouseViewHolder> =
             object : FirebaseRecyclerAdapter<Houses, HouseViewHolder>(options) {
+                @SuppressLint("SetTextI18n")
                 override fun onBindViewHolder(@NotNull holder: HouseViewHolder, i: Int, @NotNull model: Houses) {
                     Log.v("adapter","222")
                     holder.txtCost.text = ("₽"+ model.getCostV())
+
                     holder.txtLocation.text = model.getLocationV()
-                    holder.txtInfo.text = model.getInfoV()
+
+                    val lengthInfo = holder.txtInfo.text.length
+                    if (lengthInfo < 40) holder.txtInfo.text = model.getInfoV().substring(0,40).replaceRange(37,40,"...")
+                    else holder.txtInfo.text = model.getInfoV()
+
                     Picasso.get().load(model.getImage()).into(holder.imageView)
+
+                    cost = ("₽"+ model.getCostV())
+                    location = (model.getLocationV())
+                    room= (model.getRoomsV())
+                    square = (model.getSquareV())
+                    info = (model.getInfoV())
+                    number = (model.getNumberV())
+                    image = (model.getImage())
                 }
 
                 @NotNull
@@ -74,9 +103,21 @@ class MainActivity : AppCompatActivity() {
         adapter.startListening()
     }
 
+
     fun SelectInfoAd(view: View){
-        val IntentInfoAd = Intent(this, InfoMenuAd::class.java)
+
+        val IntentInfoAd = Intent(this@MainActivity, InfoMenuAd::class.java)
+        IntentInfoAd.putExtra(Constant.COST, cost)
+        IntentInfoAd.putExtra(Constant.LOCATION, location)
+        IntentInfoAd.putExtra(Constant.ROOM, room)
+        IntentInfoAd.putExtra(Constant.SQUARE, square)
+        IntentInfoAd.putExtra(Constant.INFO, info)
+        IntentInfoAd.putExtra(Constant.NUMBER, number)
+        IntentInfoAd.putExtra(Constant.IMAGE, image)
         startActivity(IntentInfoAd)
+
+
     }
+
 
 }

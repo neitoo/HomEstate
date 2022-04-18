@@ -1,6 +1,6 @@
 package ru.homebuy.neito.Model
 
-class Houses(_costV: String = "",  _locationV: String = "", _roomsV: String = "", _squareV: String = "",_image: String = "", _infoV: String = "",_pid: String = "",  _date: String = "",_time: String = "") {
+class Houses(_costV: String = "",  _locationV: String = "", _roomsV: String = "", _squareV: String = "",_image: String = "", _infoV: String = "",_pid: String = "",  _date: String = "",_time: String = "", _number:String = "default") {
     private var costV: String = _costV
     private var locationV: String = _locationV
     private var roomsV: String = _roomsV
@@ -10,6 +10,7 @@ class Houses(_costV: String = "",  _locationV: String = "", _roomsV: String = ""
     private var pid: String = _pid
     private var date: String = _date
     private var time: String = _time
+    private var numberV: String = _number
 
 
 
@@ -83,5 +84,13 @@ class Houses(_costV: String = "",  _locationV: String = "", _roomsV: String = ""
 
     fun setTime(date: String) {
         this.time = date
+    }
+
+    fun getNumberV(): String {
+        return numberV
+    }
+
+    fun setNumberV(number: String) {
+        this.numberV = number
     }
 }

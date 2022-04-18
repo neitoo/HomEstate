@@ -146,7 +146,7 @@
             android:layout_height="55dp"
             android:layout_below="@+id/info_house"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="524dp"
+            android:layout_marginTop="12dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/input_design"
             android:ems="10"
@@ -160,9 +160,8 @@
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.6"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/select_home_image" />
+            app:layout_constraintTop_toBottomOf="@+id/info_house" />
 
         <Button
             android:id="@+id/button"
