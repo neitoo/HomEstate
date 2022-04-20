@@ -109,7 +109,7 @@ class PlusAd : AppCompatActivity() {
         val currentTime = SimpleDateFormat("HHmmss")
         saveCurrentTime = currentTime.format(calendar.time)
         RandomKey = saveCurrentDate + saveCurrentTime
-        val filePath = HouseImageRef!!.child(RandomKey + ImageUri?.lastPathSegment!! )
+        val filePath = HouseImageRef!!.child(RandomKey + ImageUri?.lastPathSegment!!)
         Log.v("1111", filePath.toString())
         val uploadTask = filePath.putFile(ImageUri!!)
         uploadTask.addOnFailureListener { e ->
@@ -136,7 +136,7 @@ class PlusAd : AppCompatActivity() {
     }
 
     private fun SaveProductInfoToDatabase() {
-        Log.v("succes","333")
+        Log.v("succes", "333")
         val productMap = HashMap<String, Any?>()
         productMap["pid"] = RandomKey
         productMap["date"] = saveCurrentDate
@@ -154,12 +154,12 @@ class PlusAd : AppCompatActivity() {
                     loadingBar!!.dismiss()
                     Toast.makeText(this@PlusAd, "Товар добавлен", Toast.LENGTH_SHORT).show()
                     val loginIntent = Intent(this@PlusAd, MainActivity::class.java)
-                    Log.v("succes","111")
+                    Log.v("succes", "111")
                     startActivity(loginIntent)
                 } else {
                     val message = task.exception.toString()
                     Toast.makeText(this@PlusAd, "Ошибка: $message", Toast.LENGTH_SHORT).show()
-                    Log.v("succes","222")
+                    Log.v("succes", "222")
                     loadingBar!!.dismiss()
                 }
             }

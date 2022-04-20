@@ -8,7 +8,7 @@
     android:background="#373745"
     tools:context=".MainActivity">
 
-    <Button
+    <!--<Button
         android:id="@+id/settingButton"
         android:layout_width="162dp"
         android:layout_height="57dp"
@@ -31,7 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck" />-->
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -40,6 +40,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="32dp"
         android:scrollbars="vertical"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

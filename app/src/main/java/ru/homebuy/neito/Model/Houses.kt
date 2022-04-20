@@ -62,11 +62,11 @@ class Houses(_costV: String = "",  _locationV: String = "", _roomsV: String = ""
         this.infoV = infoV
     }
 
-    fun getPut(): String {
+    fun getPid(): String {
         return pid
     }
 
-    fun setPut(pid: String) {
+    fun setPid(pid: String) {
         this.pid = pid
     }
 

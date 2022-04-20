@@ -15,7 +15,6 @@
         tools:context=".PlusAd">
 
         <ImageView
-            android:id="@+id/select_home_image"
             android:layout_width="0dp"
             android:layout_height="204dp"
             android:layout_centerHorizontal="true"
@@ -25,10 +24,28 @@
             android:background="@drawable/input_design"
             android:backgroundTint="#373745"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/add_image"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
+
+        <ImageView
+            android:id="@+id/select_home_image"
+            android:layout_width="0dp"
+            android:layout_height="204dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="76dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/input_design"
+            android:backgroundTint="#00373745"
+            android:cropToPadding="false"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription,ImageContrastCheck" />
 
 

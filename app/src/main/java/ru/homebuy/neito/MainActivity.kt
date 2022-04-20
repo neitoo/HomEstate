@@ -29,13 +29,13 @@ class MainActivity : AppCompatActivity() {
     private var recyclerView: RecyclerView? = null
     var layoutManager: RecyclerView.LayoutManager? = null
 
-    var cost: String ?= null
-    var location: String ?= null
-    var room: String ?= null
-    var square: String ?= null
-    var info: String ?= null
-    var number: String ?= null
-    var image: String  ?=null
+    var cost: String? = null
+    var location: String? = null
+    var room: String? = null
+    var square: String? = null
+    var info: String? = null
+    var number: String? = null
+    var image: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,10 +49,10 @@ class MainActivity : AppCompatActivity() {
             view.context.startActivity(intent)
         }
 
-        settingButton.setOnClickListener(){
-            val intentSet = Intent(this, setting_homes::class.java)
-            startActivity(intentSet)
-        }
+        /* settingButton.setOnClickListener() {
+             val intentSet = Intent(this, setting_homes::class.java)
+             startActivity(intentSet)
+         }*/
 
         recyclerView = findViewById(R.id.recycler_menu)
         recyclerView?.setHasFixedSize(true)
@@ -70,30 +70,46 @@ class MainActivity : AppCompatActivity() {
         val adapter: FirebaseRecyclerAdapter<Houses, HouseViewHolder> =
             object : FirebaseRecyclerAdapter<Houses, HouseViewHolder>(options) {
                 @SuppressLint("SetTextI18n")
-                override fun onBindViewHolder(@NotNull holder: HouseViewHolder, i: Int, @NotNull model: Houses) {
-                    Log.v("adapter","222")
-                    holder.txtCost.text = ("₽"+ model.getCostV())
+                override fun onBindViewHolder(
+                    @NotNull holder: HouseViewHolder,
+                    i: Int,
+                    @NotNull model: Houses
+                ) {
+                    Log.v("adapter", "222")
+                    holder.txtCost.text = ("₽" + model.getCostV())
 
                     holder.txtLocation.text = model.getLocationV()
 
                     val lengthInfo = holder.txtInfo.text.length
-                    if (lengthInfo < 40) holder.txtInfo.text = model.getInfoV().substring(0,40).replaceRange(37,40,"...")
+                    if (lengthInfo < 40) holder.txtInfo.text =
+                        model.getInfoV().substring(0, 40).replaceRange(37, 40, "...")
                     else holder.txtInfo.text = model.getInfoV()
 
                     Picasso.get().load(model.getImage()).into(holder.imageView)
 
-                    cost = ("₽"+ model.getCostV())
+                    cost = ("₽" + model.getCostV())
                     location = (model.getLocationV())
-                    room= (model.getRoomsV())
+                    room = (model.getRoomsV())
                     square = (model.getSquareV())
                     info = (model.getInfoV())
                     number = (model.getNumberV())
                     image = (model.getImage())
+
+                    holder.itemView.setOnClickListener {
+                        val IntentInfoAd = Intent(this@MainActivity, InfoMenuAd::class.java)
+                        IntentInfoAd.putExtra("pid", model.getPid())
+                        startActivity(IntentInfoAd)
+                    }
+
+
                 }
 
                 @NotNull
-                override fun onCreateViewHolder(@NotNull parent: ViewGroup, viewType: Int): HouseViewHolder {
-                    Log.v("viewholder","222")
+                override fun onCreateViewHolder(
+                    @NotNull parent: ViewGroup,
+                    viewType: Int
+                ): HouseViewHolder {
+                    Log.v("viewholder", "222")
                     val view = LayoutInflater.from(parent.context)
                         .inflate(R.layout.house_image_layout, parent, false)
                     return HouseViewHolder(view)
@@ -101,22 +117,6 @@ class MainActivity : AppCompatActivity() {
             }
         recyclerView!!.adapter = adapter
         adapter.startListening()
-    }
-
-
-    fun SelectInfoAd(view: View){
-
-        val IntentInfoAd = Intent(this@MainActivity, InfoMenuAd::class.java)
-        IntentInfoAd.putExtra(Constant.COST, cost)
-        IntentInfoAd.putExtra(Constant.LOCATION, location)
-        IntentInfoAd.putExtra(Constant.ROOM, room)
-        IntentInfoAd.putExtra(Constant.SQUARE, square)
-        IntentInfoAd.putExtra(Constant.INFO, info)
-        IntentInfoAd.putExtra(Constant.NUMBER, number)
-        IntentInfoAd.putExtra(Constant.IMAGE, image)
-        startActivity(IntentInfoAd)
-
-
     }
 
 
