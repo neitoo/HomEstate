@@ -75,7 +75,6 @@ class MainActivity : AppCompatActivity() {
                     i: Int,
                     @NotNull model: Houses
                 ) {
-                    Log.v("adapter", "222")
                     holder.txtCost.text = ("₽" + model.getCostV())
 
                     holder.txtLocation.text = model.getLocationV()
@@ -105,10 +104,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 @NotNull
-                override fun onCreateViewHolder(
-                    @NotNull parent: ViewGroup,
-                    viewType: Int
-                ): HouseViewHolder {
+                override fun onCreateViewHolder(@NotNull parent: ViewGroup,viewType: Int): HouseViewHolder {
                     Log.v("viewholder", "222")
                     val view = LayoutInflater.from(parent.context)
                         .inflate(R.layout.house_image_layout, parent, false)

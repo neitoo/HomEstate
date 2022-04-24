@@ -136,7 +136,6 @@ class PlusAd : AppCompatActivity() {
     }
 
     private fun SaveProductInfoToDatabase() {
-        Log.v("succes", "333")
         val productMap = HashMap<String, Any?>()
         productMap["pid"] = RandomKey
         productMap["date"] = saveCurrentDate
@@ -152,7 +151,7 @@ class PlusAd : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     loadingBar!!.dismiss()
-                    Toast.makeText(this@PlusAd, "Товар добавлен", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@PlusAd, "Объявление добавлено", Toast.LENGTH_SHORT).show()
                     val loginIntent = Intent(this@PlusAd, MainActivity::class.java)
                     Log.v("succes", "111")
                     startActivity(loginIntent)

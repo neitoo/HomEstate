@@ -26,8 +26,6 @@ class InfoMenuAd : AppCompatActivity() {
     private var HouseID: String = ""
 
     var HouseReference: DatabaseReference? = null
-    private var recyclerView: RecyclerView? = null
-    var layoutManager: RecyclerView.LayoutManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

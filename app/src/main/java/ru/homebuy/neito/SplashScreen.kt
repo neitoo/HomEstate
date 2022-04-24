@@ -12,19 +12,17 @@ class SplashScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
-        // Это используется, чтобы скрыть строку состояния и сделать
-        // экран-заставка в качестве полноэкранного действия.
+
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
-        // мы использовали метод postDelayed(Runnable, time)
-        // для отправки сообщения с задержкой по времени.
+
         Handler().postDelayed({
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
-        }, 2000) // 3000 is the delayed time in milliseconds.
+        }, 2000)
     }
 }
